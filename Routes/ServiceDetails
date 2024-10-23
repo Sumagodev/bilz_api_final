@@ -1,0 +1,43 @@
+// const express = require('express');
+// const { validateProductName, validateProductNameId } = require('../Validations/productNameValidation');
+// const {
+//   addProductName,
+//   getProductNames,
+//   updateProductName,
+//   isActiveStatus,
+//   isDeleteStatus,
+// } = require('../Controllers/ProductName');
+// const authenticateToken = require('../middleware/auth');
+
+// const router = express.Router();
+
+// router.post('/add', authenticateToken, validateProductName, addProductName);
+// router.get('/get', getProductNames);
+// router.get('/find', authenticateToken, getProductNames);
+// router.put('/update/:id', authenticateToken, validateProductNameId, validateProductName, updateProductName);
+// router.put('/isactive/:id', authenticateToken, validateProductNameId, isActiveStatus);
+// router.delete('/isdelete/:id', authenticateToken, validateProductNameId, isDeleteStatus);
+
+// module.exports = router;
+const express = require('express');
+
+const productImagesController=require('../Controllers/ServiceDetail');
+const { validateProductName, validateProductNameId } = require('../Validations/productNameValidation');
+const authenticateToken = require('../middleware/auth');
+const { upload } = require('../middleware/multer');
+const router = express.Router();
+
+
+
+router.post('/add',  upload.single('img'),productImagesController.createServiceDetail);
+router.get('/get/:productId', productImagesController.getServiceDetailsByProductId);
+router.put('/update/:id', productImagesController.updateServiceDetail);
+router.get('/find',authenticateToken, productImagesController.getAllServiceDetails);
+router.get('/get', productImagesController.getAllServiceDetails);
+router.put('/isactive/:id', authenticateToken, validateProductNameId, productImagesController.isActiveStatus);
+
+router.delete('/isdelete/:id', productImagesController.deleteServiceDetail);
+
+
+module.exports = router;
+

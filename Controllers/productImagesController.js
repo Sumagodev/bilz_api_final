@@ -36,18 +36,32 @@ exports.createProductDetail = async (req, res) => {
 };
 
 // Get all details for a specific product
-exports.getProductDetailsByProductId = async (req, res) => {
-    try {
-        const productDetails = await ProductDetail.findAll({
-            where: { productId: req.params.productId }
-        });
-        if (productDetails.length === 0) {
-            return res.status(404).json({ message: "No details found for this product" });
-        }
-        res.status(200).json(productDetails);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
+exports.getProductDetailsBySlug = async (req, res) => {
+  try {
+      const productDetails = await ProductDetail.findAll({
+          include: [
+              {
+                  model: ProductName,
+                  attributes: ['id', 'title', 'description'],
+                  include: [
+                      {
+                          model: ProductImage,
+                          where: { slug: req.params.slug }, // Match by slug here
+                          attributes: ['img', 'title', 'description', 'slug'],
+                      }
+                  ]
+              }
+          ]
+      });
+
+      if (productDetails.length === 0) {
+          return res.status(404).json({ message: "No details found for this product" });
+      }
+
+      res.status(200).json(productDetails);
+  } catch (error) {
+      res.status(500).json({ message: error.message });
+  }
 };
 // exports.getAllProductDetails = async (req, res) => {
 //     try {

@@ -51,7 +51,7 @@ router.delete('/isdelete/:id',authenticateToken, productController.deleteProduct
 router.post('/adddetails', upload.single('img'),authenticateToken, productImagesController.createProductDetail);
 router.get('/getdetails', productImagesController.getAllProductDetails);
 router.get('/finddetails',productImagesController.getAllProductDetails);
-router.get('/getdetails/:productId', productImagesController.getProductDetailsByProductId);
+router.get('/getdetails/:slug', productImagesController.getProductDetailsByProductId);
 router.put('/isactive/:id', authenticateToken, validateTeamMemberId,productImagesController.isActiveStatus);
 router.put('/updatedetails/:id', upload.single('img'),authenticateToken, productImagesController.updateProductDetail);
 router.delete('/isdeletedetails/:id',authenticateToken, productImagesController.deleteProductDetail);

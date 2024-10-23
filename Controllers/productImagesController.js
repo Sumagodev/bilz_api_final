@@ -36,7 +36,7 @@ exports.createProductDetail = async (req, res) => {
 };
 
 // Get all details for a specific product
-exports.getProductDetailsBySlug = async (req, res) => {
+exports.getProductDetailsByProductId = async (req, res) => {
   try {
       const productDetails = await ProductDetail.findAll({
           include: [

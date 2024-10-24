@@ -9,13 +9,14 @@ const {
   } = require('../Validations/specail');
 const router = express.Router();
 
-
+ 
 
 router.post('/add',authenticateToken,productImagesController.createProductDetail);
 router.get('/get/:subproductId', productImagesController.getProductDetailsByProductId);
 router.get('/find',authenticateToken, productImagesController.getAllProductDetails);
+router.get('/get/:subproductId', productImagesController.getProductDetailsByProductId);
 
-router.get('/get', productImagesController.getAllProductDetails);
+router.get('/getProductDetailsByProductAndSubProductId/:productId/:subproductId', productImagesController.getProductDetailsByProductAndSubProductId);
 
 
 router.put('/update/:id', productImagesController.updateProductDetail);

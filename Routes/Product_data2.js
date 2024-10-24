@@ -13,6 +13,7 @@ router.get('/get/:subproductId', productImagesController.getProductDetailsByProd
 router.get('/find',authenticateToken, productImagesController.getAllProductDetails);
 router.put('/isactive/:id', authenticateToken, validateProductNameId, productImagesController.isActiveStatus);
 router.get('/get', productImagesController.getAllProductDetails);
+router.get('/getProductDetailsByProductsubId/:productId/:subproductId',productImagesController.getProductDetailsByProductsubId);
 
 
 router.put('/update/:id', productImagesController.updateProductDetail);

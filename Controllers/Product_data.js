@@ -8,7 +8,7 @@ const { slugify } = require('../helper/slugify');
 // Create new product details for a product
 exports.createProductDetail = async (req, res) => {
   try {
-      const { title_pro, description, productId, subproductId } = req.body;
+      const { title, description, productId, subproductId } = req.body;
 
       console.log("Product ID:", productId);
       console.log("Sub Product ID:", subproductId);
@@ -32,7 +32,7 @@ exports.createProductDetail = async (req, res) => {
 
       // Create the product detail with the slug
       const productDetail = await ProductDetail.create({
-        title_pro,
+          title,
           description,
           productId,
           subproductId

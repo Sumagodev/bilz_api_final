@@ -7,7 +7,7 @@ const { slugify } = require('../helper/slugify');
 
 const ProductData = sequelize.define('ProductData', {
    
-    title_pro: {
+    title: {
         type: DataTypes.STRING,
         allowNull: false,
     },

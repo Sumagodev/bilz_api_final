@@ -23,13 +23,7 @@ const ProductData = sequelize.define('ProductData', {
         },
         allowNull: false,
     },
-    slug: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-    },
-    subproductId:
-    {
+subproductId:{
         type: DataTypes.INTEGER,
         references: {
             model: Product_Image2,
@@ -45,6 +39,7 @@ const ProductData = sequelize.define('ProductData', {
     timestamps: true,
     tableName: 'Product_Data',
     });
+
 
 // Setting up the foreign key
 ProductData.belongsTo(ProductName, { foreignKey: 'productId', onDelete: 'CASCADE' });

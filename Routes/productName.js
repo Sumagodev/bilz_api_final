@@ -55,7 +55,7 @@ router.get('/getdetails/:productId', productImagesController.getProductDetailsBy
 router.put('/isactive/:id', authenticateToken, validateTeamMemberId,productImagesController.isActiveStatus);
 router.put('/updatedetails/:id', upload.single('img'),authenticateToken, productImagesController.updateProductDetail);
 router.delete('/isdeletedetails/:id',authenticateToken, productImagesController.deleteProductDetail);
-// router.get('/getProductDetailsByProductsubId/:id',productImagesController.getProductDetailsByProductsubId)
+router.get('/getProductDetailsByProductsubId/:id',productImagesController.getProductDetailsByProductsubId)
 
 // router.post('/addimage',  upload.single('img'),productImagesController.createProductDetail);
 // router.get('/getimage/:productId', productImagesController.getProductDetailsByProductId);

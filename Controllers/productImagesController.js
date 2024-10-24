@@ -49,7 +49,19 @@ exports.getProductDetailsByProductId = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
+exports.getProductDetailsByProductsubId = async (req, res) => {
+  try {
+    const productDetails = await ProductDetail.findAll({
+      where: { id: req.params.id }
+    });
+    if (productDetails.length === 0) {
+      return res.status(404).json({ message: "No details found for this product" });
+    }
+    res.status(200).json(productDetails);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 // exports.getAllProductDetails = async (req, res) => {
 //     try {
 //         // Fetch all service details where isDelete is false, if applicable

@@ -46,6 +46,7 @@ const ProductData = sequelize.define('ProductData', {
     tableName: 'Product_Data',
     });
 
+    
 // Setting up the foreign key
 ProductData.belongsTo(ProductName, { foreignKey: 'productId', onDelete: 'CASCADE' });
 ProductName.hasOne(ProductData, { foreignKey: 'productId' });

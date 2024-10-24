@@ -7,7 +7,7 @@ const { slugify } = require('../helper/slugify');
 
 const ProductData = sequelize.define('ProductData', {
    
-    title: {
+    title_pro: {
         type: DataTypes.STRING,
         allowNull: false,
     },
@@ -23,12 +23,7 @@ const ProductData = sequelize.define('ProductData', {
         },
         allowNull: false,
     },
-    // slug: {
-    // type: DataTypes.STRING,
-    // allowNull: false,
-    // // unique: true,
-    // },
-    subproductId:{
+subproductId:{
         type: DataTypes.INTEGER,
         references: {
             model: Product_Image2,

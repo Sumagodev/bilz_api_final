@@ -26,7 +26,7 @@ const ProductData = sequelize.define('ProductData', {
     slug: {
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true,
+    // unique: true,
     },
     subproductId:
     {

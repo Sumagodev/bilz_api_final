@@ -28,13 +28,12 @@ exports.createProductDetail = async (req, res) => {
       }
 
       // Generate slug from title
-      const slug = slugify(title);
+      // const slug = slugify(title);
 
       // Create the product detail with the slug
       const productDetail = await ProductDetail.create({
           title,
           description,
-          slug,            // Add the generated slug
           productId,
           subproductId
       });
@@ -136,20 +135,20 @@ exports.updateProductDetail = async (req, res) => {
       const { title = '', description = '', productId = '', subproductId = '' } = req.body;
 
       // Generate a new slug if the title is provided and different from the current one
-      let slug = productDetail.slug; // Retain the existing slug by default
-      if (title && title !== productDetail.title) {
-          slug = slugify(title, {
-              lower: true, // convert to lowercase
-              strict: true // remove special characters
-          });
-      }
+      // let slug = productDetail.slug; // Retain the existing slug by default
+      // if (title && title !== productDetail.title) {
+      //     slug = slugify(title, {
+      //         lower: true, // convert to lowercase
+      //         strict: true // remove special characters
+      //     });
+      // }
 
       // Update product detail fields
       productDetail.title = title || productDetail.title;
       productDetail.description = description || productDetail.description;
       productDetail.productId = productId || productDetail.productId;
       productDetail.subproductId = subproductId || productDetail.subproductId;
-      productDetail.slug = slug;  // Update the slug if changed
+      // productDetail.slug = slug;  // Update the slug if changed
 
       // Save updated product detail
       await productDetail.save();

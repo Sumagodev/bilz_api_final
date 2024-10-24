@@ -26,10 +26,8 @@ exports.createProductDetail = async (req, res) => {
           console.log("Sub Product not found with ID:", subproductId);
           return res.status(404).json({ message: "Sub Product not found" });
       }
-
       // Generate slug from title
       // const slug = slugify(title);
-
       // Create the product detail with the slug
       const productDetail = await ProductDetail.create({
           title,

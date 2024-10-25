@@ -19,5 +19,7 @@ router.get('/get', getStateinfos);
 router.get('/find',  getStateinfos);
 router.put('/isactive/:id',  validateOfficeId, toggleStateinfoStatus);
 router.delete('/isdelete/:id',  validateOfficeId, toggleStateinfoDelete);
-router.get('/get/:statename', getStateinfoByStatename);
+router.get('/get/:statename', getStateinfoByStatename); 
+
+
 module.exports = router;

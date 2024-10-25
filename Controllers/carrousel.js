@@ -9,9 +9,11 @@ exports.addCarrousal = async (req, res) => {
     }
 
     const img = req.file.path;
+    const { title } = req.body; // Get title from request body
 
     const carrousal = await Carrousal.create({
       img,
+      title,
       isActive: true,
       isDelete: false,
     });

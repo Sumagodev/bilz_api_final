@@ -49,7 +49,7 @@ const Product_data2 =require("./Routes/Product_data2");
 const distributer=require("./Routes/distributer");
 const feedback =require("./Routes/feedback");
 const contact_form=require("./Routes/contact_form");
-
+const stateinfo=require('./Routes/Stateinfo')
 
 
 app.use("/auth", login);
@@ -80,6 +80,7 @@ app.use("/Further",Further);
 app.use("/Social",Social);
 app.use("/News1",News);
 app.use("/Special",Special);
+app.use("/stateinfo",stateinfo)
 // app.use("/Product_Image",Product_Image)
 
 

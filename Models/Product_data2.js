@@ -58,11 +58,7 @@ const ProductData2 = sequelize.define('ProductData2', {
         },
         allowNull: false,
     },
-    slug: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-    },
+   
     subproductId:
     {
         type: DataTypes.INTEGER,

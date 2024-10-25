@@ -11,12 +11,18 @@ exports.addCarrousal = async (req, res) => {
     const img = req.file.path;
     const { title } = req.body; // Get title from request body
 
-    const carrousal = await Carrousal.create({
+    // Define carrousal data, setting title only if it exists
+    const carrousalData = {
       img,
-      title,
       isActive: true,
       isDelete: false,
-    });
+    };
+
+    if (title) {
+      carrousalData.title = title;
+    }
+
+    const carrousal = await Carrousal.create(carrousalData);
 
     return apiResponse.successResponseWithData(
       res,

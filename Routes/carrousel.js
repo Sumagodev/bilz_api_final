@@ -13,7 +13,7 @@ const authenticateToken = require('../middleware/auth');
 
 const router = express.Router();
 
-router.post('/add', upload.single('img'), authenticateToken, addCarrousal);
+router.post('/aaadd', upload.single('img'), authenticateToken, addCarrousal);
 router.put('/update/:id', upload.single('img'), authenticateToken, validateCarrousalId, updateCarrousal);
 router.get('/get', getCarrousals);
 router.get('/find', authenticateToken, getCarrousals);

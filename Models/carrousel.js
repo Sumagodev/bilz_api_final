@@ -10,7 +10,7 @@ const Carrousal = sequelize.define(
     },
     title: {
       type: DataTypes.STRING,
-      allowNull: false, // You can set this to `false` if the title is required
+      allowNull: true, // You can set this to `false` if the title is required
     },
     isActive: {
       type: DataTypes.BOOLEAN,

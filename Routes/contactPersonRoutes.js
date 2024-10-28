@@ -15,7 +15,7 @@ const imageRequired = require('../Validations/imageValidation');
 const router = express.Router();
 
 
-router.post('/add', upload.single('img'), authenticateToken, addContactPerson);
+router.post('/add', upload.single('img'), addContactPerson);
 router.put('/update/:id', upload.single('img'), authenticateToken, validateContactPersonId, updateContactPerson);
 
 

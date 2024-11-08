@@ -4,9 +4,9 @@ const apiResponse = require('../helper/apiResponse');
 exports.addOffice = async (req, res) => {
   try {
     const { name, company_name, phone, email,msg } = req.body;
-  
+    // const img = req.file ? req.file.path : null;
 
-    const office = await Office.create({  name, company_name, phone, email,msg, isActive: true, isDelete: false });
+    const office = await Office.create({ img, name, company_name, phone, email,msg, isActive: true, isDelete: false });
     return apiResponse.successResponseWithData(res, 'Contact form added successfully', office);
   } catch (error) {
     console.error('Contact form  failed', error);
@@ -18,7 +18,7 @@ exports.updateOffice = async (req, res) => {
   try {
     const { id } = req.params;
     const { name, company_name, phone, email,msg } = req.body;
- 
+    // const img = req.file ? req.file.path : null;
 
     const office = await Office.findByPk(id);
     if (!office) {
@@ -30,7 +30,7 @@ exports.updateOffice = async (req, res) => {
     office.phone = phone;
     office.email = email;
     office.msg=msg;
-   
+    // office.img = img || office.img;
     await office.save();
 
     return apiResponse.successResponseWithData(res, 'Contact form updated successfully', office);
@@ -44,7 +44,7 @@ exports.getOffices = async (req, res) => {6
   try {
     const offices = await Office.findAll({ where: { isDelete: false } });
 
-    // const baseUrl = `${req.protocol}://${req.get('host')}/`;
+    const baseUrl = `${req.protocol}://${req.get('host')}/`;
     // const officesWithBaseUrl = offices.map(office => {
     //   return {
     //     ...office.toJSON(),

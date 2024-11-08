@@ -12,7 +12,7 @@ const authenticateToken = require('../middleware/auth');
 const imageRequired = require('../Validations/imageValidation');
 const router = express.Router();
 
-router.post('/add', uploadFiles, imageRequired, validateContactPerson, addContactPerson);
+router.post('/add', uploadFiles, validateContactPerson, addContactPerson);
 router.put('/update/:id', uploadFiles, validateContactPerson, validateContactPersonId, updateContactPerson);
 router.get('/get', getContactPersons);
 router.get('/find', authenticateToken, getContactPersons);

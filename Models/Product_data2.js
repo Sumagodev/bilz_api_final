@@ -38,7 +38,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 const ProductName = require('./ProductName');
 const Product_Image2 =require('./ProductImage');
-const { slugify } = require('../helper/slugify');
+// const { slugify } = require('../helper/slugify');
 
 const ProductData2 = sequelize.define('ProductData2', {
    
@@ -58,11 +58,11 @@ const ProductData2 = sequelize.define('ProductData2', {
         },
         allowNull: false,
     },
-    slug: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-    },
+    // slug: {
+    // type: DataTypes.STRING,
+    // allowNull: false,
+    // unique: true,
+    // },
     subproductId:
     {
         type: DataTypes.INTEGER,

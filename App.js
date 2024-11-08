@@ -24,6 +24,7 @@ const login = require("./Routes/User");
 const carrousel = require("./Routes/carrousel");
 const home_about =require("./Routes/HeaderContact");
 const productName =require("./Routes/productName");
+const EnquirySheet =require("./Routes/EnquirySheet");
 
 const apply_now = require("./Routes/apply_now");
 const job=require("./Routes/job");
@@ -60,6 +61,7 @@ app.use("/contact_form",contact_form);
 app.use("/carrousel", carrousel);
 app.use("/home_about",home_about);
 app.use("/productName",productName);
+app.use("/EnquirySheet",EnquirySheet);
 app.use("/Product_data",Product_data);
 app.use("/Product_data2",Product_data2);
 app.use("/apply_now",apply_now);
@@ -106,9 +108,6 @@ const init = async () => {
     console.log(`Server running on port: ${port}`);
   });
 };
-
-
-
 
 init();
 

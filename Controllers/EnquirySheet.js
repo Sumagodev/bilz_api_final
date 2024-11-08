@@ -16,15 +16,25 @@ exports.addEnquirySheet = async (req, res) => {
   }
 };                                                       
 
-exports.getEnquirySheet = async (req, res) => {
+
+exports.getEnquirySheet = async (req, res) => {6
   try {
     const enquiry = await EnquirySheet.findAll({ where: { isDelete: false } });
+
+    // const baseUrl = `${req.protocol}://${req.get('host')}/`;
+    // const officesWithBaseUrl = offices.map(office => {
+    //   return {
+    //     ...office.toJSON(),
+    //     img: office.img ? baseUrl + office.img.replace(/\\/g, '/') : null
+    //   };
+    // });
+
     return apiResponse.successResponseWithData(res, 'Enquiry Sheet retrieved successfully', enquiry);
   } catch (error) {
-    console.error('Get Enquiry Sheet failed', error);
-    return apiResponse.ErrorResponse(res, 'Get Enquiry Sheet failed');
+    console.error('Enquiry Sheet failed', error);
+    return apiResponse.ErrorResponse(res, 'Enquiry Sheet failed');
   }
-};
+};;
 
 exports.DeleteEnquirySheet = async (req, res) => {
   try {

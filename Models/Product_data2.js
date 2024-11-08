@@ -44,7 +44,7 @@ const ProductData2 = sequelize.define('ProductData2', {
    
     title: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     description: {
         type: DataTypes.STRING,

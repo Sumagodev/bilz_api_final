@@ -8,3 +8,4 @@ const imageRequired = (req, res, next) => {
 };
 
 module.exports = imageRequired;
+  

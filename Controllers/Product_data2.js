@@ -153,7 +153,11 @@ exports.createProductDetail = async (req, res) => {
     }
 
     // Generate slug from title
+<<<<<<< HEAD
     // const slug = slugify(title);
+=======
+
+>>>>>>> c565cb58372368c41e58917798d152678f8a8ec4
 
     // Create the product detail with the slug
     const productDetail = await ProductDetail.create({
@@ -161,7 +165,11 @@ exports.createProductDetail = async (req, res) => {
       description,
       productId,
       subproductId,
+<<<<<<< HEAD
       // slug // Add the generated slug
+=======
+
+>>>>>>> c565cb58372368c41e58917798d152678f8a8ec4
     });
 
     res.status(201).json(productDetail);
@@ -272,7 +280,7 @@ exports.getAllProductDetails = async (req, res) => {
 // Update product details by ID
 exports.updateProductDetail = async (req, res) => {
   try {
-    const { title, description, productId, subproductId, slug } = req.body; // Destructure slug from the body
+    const { title, description, productId, subproductId } = req.body; // Destructure slug from the body
     const productDetail = await ProductDetail.findByPk(req.params.id);
     if (!productDetail) {
       return res.status(404).json({ message: "Product detail not found" });
@@ -283,8 +291,11 @@ exports.updateProductDetail = async (req, res) => {
     productDetail.description = description || productDetail.description;
     productDetail.productId = productId || productDetail.productId;
     productDetail.subproductId = subproductId || productDetail.subproductId;
+<<<<<<< HEAD
     // productDetail.
     // slug = slug || slugify(title, { lower: true, strict: true }); // Generate slug if not provided
+=======
+>>>>>>> c565cb58372368c41e58917798d152678f8a8ec4
 
     await productDetail.save(); // Save the updated product details
     res.status(200).json(productDetail);

@@ -153,11 +153,7 @@ exports.createProductDetail = async (req, res) => {
     }
 
     // Generate slug from title
-<<<<<<< HEAD
     // const slug = slugify(title);
-=======
-
->>>>>>> c565cb58372368c41e58917798d152678f8a8ec4
 
     // Create the product detail with the slug
     const productDetail = await ProductDetail.create({
@@ -165,11 +161,7 @@ exports.createProductDetail = async (req, res) => {
       description,
       productId,
       subproductId,
-<<<<<<< HEAD
       // slug // Add the generated slug
-=======
-
->>>>>>> c565cb58372368c41e58917798d152678f8a8ec4
     });
 
     res.status(201).json(productDetail);
@@ -291,11 +283,8 @@ exports.updateProductDetail = async (req, res) => {
     productDetail.description = description || productDetail.description;
     productDetail.productId = productId || productDetail.productId;
     productDetail.subproductId = subproductId || productDetail.subproductId;
-<<<<<<< HEAD
     // productDetail.
     // slug = slug || slugify(title, { lower: true, strict: true }); // Generate slug if not provided
-=======
->>>>>>> c565cb58372368c41e58917798d152678f8a8ec4
 
     await productDetail.save(); // Save the updated product details
     res.status(200).json(productDetail);

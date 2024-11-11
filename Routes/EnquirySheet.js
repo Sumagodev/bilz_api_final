@@ -9,7 +9,7 @@ const authenticateToken = require("../middleware/auth");
 
 const router = express.Router();
 
-router.post('/add', authenticateToken, validateEnquirySheet, addEnquirySheet);
+router.post('/add',validateEnquirySheet, addEnquirySheet);
 router.get('/get', authenticateToken, validateEnquirySheet, getEnquirySheet);
 router.delete('/isdelete/:id', authenticateToken, validateEnquirySheetId, DeleteEnquirySheet);
 

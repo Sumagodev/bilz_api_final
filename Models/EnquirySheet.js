@@ -18,6 +18,10 @@ const EnquirySheet = sequelize.define('EnquirySheet', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  date: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   contact_person: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -66,10 +70,10 @@ const EnquirySheet = sequelize.define('EnquirySheet', {
     type: DataTypes.STRING,
     allowNull: true,
   },
-  // current_location: {
-  //   type: DataTypes.STRING,
-  //   allowNull: true,
-  // },
+  current_location: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
   isActive: {
     type: DataTypes.BOOLEAN,
     defaultValue: false,

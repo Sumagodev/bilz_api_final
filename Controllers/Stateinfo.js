@@ -4,12 +4,13 @@ const apiResponse = require('../helper/apiResponse');
 // Add new state information
 exports.addStateinfo = async (req, res) => {
   try {
-    const { statename, company_name, phone, location, address } = req.body;
+    const { statename, company_name, contact_person_name, phone, location, address } = req.body;
 
     // Create new stateinfo record
     const stateinfoInstance = await Stateinfo.create({
       statename,
       company_name,
+      contact_person_name,
       phone,
       location,
       address,
@@ -28,7 +29,7 @@ exports.addStateinfo = async (req, res) => {
 exports.updateStateinfo = async (req, res) => {
   try {
     const { id } = req.params;
-    const { statename, company_name, phone, location, address } = req.body;
+    const { statename, company_name, contact_person_name, phone, location, address } = req.body;
 
     // Find existing stateinfo record by ID
     const stateinfoInstance = await Stateinfo.findByPk(id);
@@ -39,6 +40,7 @@ exports.updateStateinfo = async (req, res) => {
     // Update record
     stateinfoInstance.statename = statename;
     stateinfoInstance.company_name = company_name;
+    stateinfoInstance.contact_person_name = contact_person_name;
     stateinfoInstance.phone = phone;
     stateinfoInstance.location = location;
     stateinfoInstance.address = address;

@@ -10,6 +10,10 @@ const Stateinfo = sequelize.define('state_info', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  contact_person_name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   phone: {
     type: DataTypes.STRING,
     allowNull: false,

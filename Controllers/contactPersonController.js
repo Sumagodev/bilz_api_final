@@ -15,28 +15,17 @@ const apiResponse = require('../helper/apiResponse');
 // };
 exports.addContactPerson = async (req, res) => {
   try {
-    const { company, solution, person_name, surname, phone, street, zip, place, land, msg, email } = req.body;
+    const { company,solution, person_name,surname, phone,street,zip,place,land,msg, email } = req.body;
+    const img = req.file ? req.file.path : null;
 
-    if (!req.file) {
-      return apiResponse.ErrorResponse(res, "Image is required");
-    }
-
-    const img = req.file.path;
-
-    const carrousal = await ContactPerson.create({
-      company, solution, person_name, surname, phone, street, zip, place, land, msg, img, email, isActive: true, isDelete: false
-    });
-
-    return apiResponse.successResponseWithData(
-      res,
-      "Carrousal added successfully",
-      carrousal
-    );
+    const contactPerson = await ContactPerson.create({ company,solution, person_name,surname, phone,street,zip,place,land,msg, img, email, isActive: true, isDelete: false });
+    return apiResponse.successResponseWithData(res, 'Contact person added successfully', contactPerson);
   } catch (error) {
-    console.error("Add carrousal failed", error);
-    return apiResponse.ErrorResponse(res, "Add carrousal failed");
+    console.error('Add contact person failed', error);
+    return apiResponse.ErrorResponse(res, 'Add contact person failed');
   }
 };
+
 exports.updateContactPerson = async (req, res) => {
   try {
     const { id } = req.params;

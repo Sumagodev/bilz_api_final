@@ -4,15 +4,13 @@ const apiResponse = require('../helper/apiResponse');
 exports.addOffice = async (req, res) => {
   try {
     const { name, company_name, phone, email,msg } = req.body;
-    // const img = req.file ? req.file.path : null;
-
-    const office = await Office.create({ img, name, company_name, phone, email,msg, isActive: true, isDelete: false });
-    return apiResponse.successResponseWithData(res, 'Contact form added successfully', office);
+    const office = await Office.create({  name, company_name, phone, email,msg, isActive: true, isDelete: false });
+    return apiResponse.successResponseWithData(res, 'Contact added successfully', office);
   } catch (error) {
-    console.error('Contact form  failed', error);
-    return apiResponse.ErrorResponse(res, 'Add Contact form failed');
+    console.error('Contact failed', error);
+    return apiResponse.ErrorResponse(res, 'Add Contact failed');
   }
-};                                                       
+};                                                        
 
 exports.updateOffice = async (req, res) => {
   try {

@@ -2,10 +2,6 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
 const Job = sequelize.define('Job', {
-  img: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
   name: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -28,6 +24,10 @@ const Job = sequelize.define('Job', {
     validate: {
       isEmail: true,
     },
+  },
+  pdf: {
+    type: DataTypes.STRING,
+    allowNull: true,
   },
   isActive: {
     type: DataTypes.BOOLEAN,

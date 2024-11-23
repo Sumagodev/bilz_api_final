@@ -15,10 +15,10 @@ const apiResponse = require('../helper/apiResponse');
 // };
 exports.addContactPerson = async (req, res) => {
   try {
-    const { company,solution, person_name,surname, phone,street,zip,place,land,msg, email } = req.body;
+    const { company,solution, person_name, surname, phone, street, zip, place, land, msg, email } = req.body;
     const img = req.file ? req.file.path : null;
 
-    const contactPerson = await ContactPerson.create({ company,solution, person_name,surname, phone,street,zip,place,land,msg, img, email, isActive: true, isDelete: false });
+    const contactPerson = await ContactPerson.create({ company,solution, person_name, surname, phone, street, zip, place, land, msg, email, img, isActive: true, isDelete: false });
     return apiResponse.successResponseWithData(res, 'Contact person added successfully', contactPerson);
   } catch (error) {
     console.error('Add contact person failed', error);

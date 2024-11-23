@@ -1,18 +1,39 @@
 const Office = require('../Models/Job');
 const apiResponse = require('../helper/apiResponse');
+const { validationResult } = require('express-validator');
+// exports.addOffice = async (req, res) => {
+//   try {
+//     const { name, position, phone, email,msg } = req.body;
+//     const img = req.file ? req.file.path : null;
+
+//     const office = await Office.create({ img, name, position, phone, email,msg, isActive: true, isDelete: false });
+//     return apiResponse.successResponseWithData(res, 'Apply now added successfully', office);
+//   } catch (error) {
+//     console.error('Apply now  failed', error);
+//     return apiResponse.ErrorResponse(res, 'Add Apply now failed');
+//   }
+// };     
 
 exports.addOffice = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return apiResponse.ErrorResponse(res, errors.array().map(err => err.msg).join(', '));
+  }
   try {
     const { name, position, phone, email,msg } = req.body;
-    const img = req.file ? req.file.path : null;
+    const pdf = req.files['pdf'] ? req.files['pdf'][0].path : null;
+    const office = await Office.create({ pdf, name, position, phone, email,msg, isActive: true, isDelete: false });
 
-    const office = await Office.create({ img, name, position, phone, email,msg, isActive: true, isDelete: false });
-    return apiResponse.successResponseWithData(res, 'Apply now added successfully', office);
+    return apiResponse.successResponseWithData(
+      res,
+      'Job added successfully',
+      office
+    );
   } catch (error) {
-    console.error('Apply now  failed', error);
-    return apiResponse.ErrorResponse(res, 'Add Apply now failed');
+    console.error('Add Job failed', error);
+    return apiResponse.ErrorResponse(res, 'Add Job failed');
   }
-};                                                       
+};
 
 exports.updateOffice = async (req, res) => {
   try {

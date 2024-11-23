@@ -3,10 +3,6 @@ const sequelize = require('../config/database');
 
 const Office = sequelize.define('Office', {
 
-  img: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
   name: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -19,16 +15,16 @@ const Office = sequelize.define('Office', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  msg: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
   email: {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
       isEmail: true,
     },
+  },
+  msg: {
+    type: DataTypes.STRING,
+    allowNull: false,
   },
   isActive: {
     type: DataTypes.BOOLEAN,

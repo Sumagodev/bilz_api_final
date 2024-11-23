@@ -1,18 +1,31 @@
 const Office = require('../Models/distributer');
 const apiResponse = require('../helper/apiResponse');
 
-exports.addOffice = async (req, res) => {
-  try {
-    const { name, company_name, phone, email,msg } = req.body;
+// exports.addOffice = async (req, res) => {
+//   try {
+//     const { name, company_name, phone, msg, email } = req.body;
   
 
-    const office = await Office.create({  name, company_name, phone, email,msg, isActive: true, isDelete: false });
+//     const office = await Office.create({  name, company_name, phone, msg, email, isActive: true, isDelete: false });
+//     return apiResponse.successResponseWithData(res, 'Distributer added successfully', office);
+//   } catch (error) {
+//     console.error('Distributer  failed', error);
+//     return apiResponse.ErrorResponse(res, 'Add Distributer failed');
+//   }
+// };    
+
+exports.addOffice = async (req, res) => {
+  try {
+    const { name, company_name, phone, msg, email } = req.body;
+  
+
+    const office = await Office.create({  name, company_name, phone, msg, email, isActive: true, isDelete: false });
     return apiResponse.successResponseWithData(res, 'Distributer added successfully', office);
   } catch (error) {
-    console.error('Distributer  failed', error);
+    console.error('Distributer failed', error);
     return apiResponse.ErrorResponse(res, 'Add Distributer failed');
   }
-};                                                       
+};
 
 exports.updateOffice = async (req, res) => {
   try {

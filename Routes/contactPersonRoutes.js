@@ -14,11 +14,11 @@ const authenticateToken = require('../middleware/auth');
 const imageRequired = require('../Validations/imageValidation');
 const router = express.Router();
 
-router.post('/add', uploadFiles, validateContactPerson, addContactPerson);
+router.post('/add', upload.single('img'), validateContactPerson, addContactPerson);
 router.put('/update/:id', uploadFiles, validateContactPerson, validateContactPersonId, updateContactPerson);
 
-router.post('/add', upload.single('img'), addContactPerson);
-router.put('/update/:id', upload.single('img'), authenticateToken, validateContactPersonId, updateContactPerson);
+// router.post('/add', upload.single('img'), addContactPerson);
+// router.put('/update/:id', upload.single('img'), authenticateToken, validateContactPersonId, updateContactPerson);
 
 
 router.get('/get', getContactPersons);

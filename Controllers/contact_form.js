@@ -3,8 +3,10 @@ const apiResponse = require('../helper/apiResponse');
 
 exports.addOffice = async (req, res) => {
   try {
-    const { name, company_name, phone, email,msg } = req.body;
-    const office = await Office.create({  name, company_name, phone, email,msg, isActive: true, isDelete: false });
+    const { name, company_name, phone, msg, email } = req.body;
+  
+
+    const office = await Office.create({  name, company_name, phone, msg, email, isActive: true, isDelete: false });
     return apiResponse.successResponseWithData(res, 'Contact added successfully', office);
   } catch (error) {
     console.error('Contact failed', error);

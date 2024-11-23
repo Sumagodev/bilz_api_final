@@ -3,10 +3,10 @@ const apiResponse = require('../helper/apiResponse');
 
 exports.addOffice = async (req, res) => {
   try {
-    const { name, position, phone, email,msg } = req.body;
-    const img = req.file ? req.file.path : null;
+    const { name, position, phone, email, msg } = req.body;
+    // const img = req.file ? req.file.path : null;
 
-    const office = await Office.create({ img, name, position, phone, email,msg, isActive: true, isDelete: false });
+    const office = await Office.create({ name, position, phone, email,msg, isActive: true, isDelete: false });
     return apiResponse.successResponseWithData(res, 'Apply now added successfully', office);
   } catch (error) {
     console.error('Apply now  failed', error);

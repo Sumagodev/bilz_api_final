@@ -9,10 +9,7 @@ exports.addTestimonial = async (req, res) => {
     const testimonial = await Testimonial.create({
       img,
       name,
-    
       company_Name,
-  
-      
       isActive: true,
       isDelete: false,
     });

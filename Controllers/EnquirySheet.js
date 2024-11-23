@@ -3,11 +3,10 @@ const apiResponse = require('../helper/apiResponse');
 
 exports.addEnquirySheet = async (req, res) => {
   try {
-    const { company, designation, business, phoneno, date, contact_person, email_id, machine_type, machine_manufacturer, machine_weight, 
+    const { company, designation, business, phoneno, contact_person, email_id, machine_type, machine_manufacturer, machine_weight, 
       machine_tool_weight, mounting_position, mounting_hole_diameter, mounting_foot, speed_of_machine, machine_stokes, machine_feed_rate, current_location} = req.body;
-  
 
-    const enquiry = await EnquirySheet.create({ company, designation, business, phoneno, date, contact_person, email_id, machine_type, machine_manufacturer, machine_weight, 
+    const enquiry = await EnquirySheet.create({ company, designation, business, phoneno, contact_person, email_id, machine_type, machine_manufacturer, machine_weight, 
       machine_tool_weight, mounting_position, mounting_hole_diameter, mounting_foot, speed_of_machine, machine_stokes, machine_feed_rate, current_location,  isActive: true, isDelete: false });
     return apiResponse.successResponseWithData(res, 'Enquiry Sheet added successfully', enquiry);
   } catch (error) {

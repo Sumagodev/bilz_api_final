@@ -1,18 +1,29 @@
 const Office = require('../Models/feedback');
 const apiResponse = require('../helper/apiResponse');
 
-exports.addOffice = async (req, res) => {
-  try {
-    const { name, company_name, phone, email,msg } = req.body;
+// exports.addOffice = async (req, res) => {
+//   try {
+//     const { name, company_name, phone, email,msg } = req.body;
   
 
-    const office = await Office.create({  name, company_name, phone, email,msg, isActive: true, isDelete: false });
-    return apiResponse.successResponseWithData(res, 'Feedback added successfully', office);
+//     const office = await Office.create({  name, company_name, phone, email,msg, isActive: true, isDelete: false });
+//     return apiResponse.successResponseWithData(res, 'Feedback added successfully', office);
+//   } catch (error) {
+//     console.error('Feedback  failed', error);
+//     return apiResponse.ErrorResponse(res, 'Add Feedback failed');
+//   }
+// };              
+
+exports.addOffice = async (req, res) => {
+  try {
+    const { name, company_name, phone, msg, email } = req.body;
+    const office = await Office.create({ name, company_name, phone, msg, email, isActive: true, isDelete: false });
+    return apiResponse.successResponseWithData(res, 'Feedback now added successfully', office);
   } catch (error) {
-    console.error('Feedback  failed', error);
-    return apiResponse.ErrorResponse(res, 'Add Feedback failed');
+    console.error('Feedback now  failed', error);
+    return apiResponse.ErrorResponse(res, 'Feedback Apply now failed');
   }
-};                                                       
+};
 
 exports.updateOffice = async (req, res) => {
   try {

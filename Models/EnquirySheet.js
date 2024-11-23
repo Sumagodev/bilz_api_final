@@ -18,10 +18,10 @@ const EnquirySheet = sequelize.define('EnquirySheet', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  date: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
+  // date: {
+  //   type: DataTypes.STRING,
+  //   allowNull: false,
+  // },
   contact_person: {
     type: DataTypes.STRING,
     allowNull: false,
